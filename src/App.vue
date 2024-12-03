@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { onMounted, ref, watch } from 'vue'
+  import { onMounted, ref } from 'vue'
   import { FiltersType, Hotel } from './types'
   import filters from './components/Filters.vue'
   import { hotelsConst } from './constants.ts'
@@ -15,7 +15,8 @@
   const data = ref<Hotel[]>([])
 
   const getData = () => {
-    data.value = hotelsConst.filter(hotel => {
+    data.value = hotelsConst.filter((hotel, index) => {
+      if (index > 2) return
       const filters = allFilters.value
       if (filters.country.length && !filters.country.includes(hotel.country)) return
       if (filters.types.length && !filters.types.includes(hotel.type)) return

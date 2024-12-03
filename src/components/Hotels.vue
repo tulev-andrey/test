@@ -56,12 +56,14 @@
         </a-button>
       </div>
     </div>
+    <h1 v-if="!hotels.length" class="void">Записей не найдено</h1>
   </div>
 </template>
 
 <style scoped>
   .hotels {
     margin-left: 30px;
+    width: 70%;
   }
   .hotel {
     border: 1px solid #EAEAEA;
@@ -129,5 +131,9 @@
   .purple {
     background-color: rgba(106, 83, 245, 0.3);
     color: #6A53F5;
+  }
+  .void {
+    margin-top: 200px;
+    text-align: center;
   }
 </style>
